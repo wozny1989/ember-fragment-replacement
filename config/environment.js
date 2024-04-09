@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'ember-fragment-replacement',
+    podModulePrefix: 'ember-fragment-replacement/pods',
     environment,
     rootURL: '/',
     locationType: 'history',
