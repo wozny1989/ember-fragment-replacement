@@ -1,0 +1,24 @@
+<form {{on "submit" this.submit}}>
+  <PowerSelect
+    style="max-width: 150px; margin-bottom: 16px;"
+    @options={{this.langOptions}}
+    @selected={{this.selectedLanguage}}
+    @onChange={{set this "selectedLanguage"}}
+    as |lang|
+  >
+    {{lang}}
+  </PowerSelect>
+
+  <label for="title">Title</label>
+  <input
+    id="title"
+    type="text"
+    value={{get @model.title this.selectedLanguage}}
+    {{on "input" this.onTitleChange}}
+  />
+
+  <button
+    type="submit"
+    disabled={{not @model.hasDirtyAttributes}}
+  >Submit</button>
+</form>
