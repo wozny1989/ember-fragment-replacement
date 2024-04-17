@@ -2,4 +2,14 @@
 
 <BasicDropdownWormhole />
 
+<div style="margin-bottom: 25px;">
+  <LinkTo @route="dashboard">Main Page</LinkTo>
+
+  {{#each this.model as |model|}}
+    |
+    <LinkTo @route="post" @model={{model}}>{{model.id}}
+      {{model.title.resolved}}</LinkTo>
+  {{/each}}
+</div>
+
 {{outlet}}

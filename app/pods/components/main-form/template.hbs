@@ -22,3 +22,36 @@
     disabled={{not @model.hasDirtyAttributes}}
   >Submit</button>
 </form>
+
+<div>
+  Is dirty?
+  {{@model.hasDirtyAttributes}}
+</div>
+
+<div>
+  Resolved:
+  {{@model.title.resolved}}
+</div>
+
+{{! template-lint-disable no-duplicate-landmark-elements }}
+<form {{on "submit" this.submitChangeset}} style="margin-top: 48px;">
+  <label for="title_2">Title</label>
+  <input
+    id="title_"
+    type="text"
+    value={{get this.changeset.title this.selectedLanguage}}
+    {{on "input" this.onTitleChangesetChange}}
+  />
+
+  <button type="submit" disabled={{not this.changeset.isDirty}}>Submit</button>
+</form>
+
+<div>
+  Is dirty?
+  {{this.changeset.isDirty}}
+</div>
+
+<div>
+  Resolved:
+  {{this.changeset.title.resolved}}
+</div>

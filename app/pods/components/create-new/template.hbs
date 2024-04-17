@@ -1,0 +1,10 @@
+<div ...attributes>
+  <button type="button" {{on "click" this.create}}>Create new post</button>
+
+  <div>Model id: {{this.model}}</div>
+  <div>Model title resolved: {{this.model.title.resolved}}</div>
+
+  {{#if this.model}}
+    <MainForm @model={{this.model}} />
+  {{/if}}
+</div>
