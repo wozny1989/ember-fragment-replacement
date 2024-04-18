@@ -8,10 +8,6 @@ export default class DashboardRoute extends Route {
     return this.store.createRecord('post', {
       lang: 'en_GB',
       langAlt: ['de_DE'],
-      title: this.store.createRecord('lang-fragment', {
-        en_GB: 'My title',
-        de_DE: 'My titel',
-      }),
     });
   }
 }
