@@ -33,16 +33,26 @@ export default class MainFormComponent extends Component {
   }
 
   @action
-  submit(event) {
-    event.preventDefault();
-
-    this.args.model.save();
+  rollbackModel() {
+    this.args.model.rollbackAttributes();
   }
 
   @action
-  submitChangeset(event) {
+  rollbackChangeset() {
+    this.changeset.rollback();
+  }
+
+  @action
+  async submit(event) {
     event.preventDefault();
 
-    this.changeset.save();
+    await this.args.model.save();
+  }
+
+  @action
+  async submitChangeset(event) {
+    event.preventDefault();
+
+    await this.changeset.save();
   }
 }

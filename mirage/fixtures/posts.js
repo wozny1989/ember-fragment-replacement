@@ -6,7 +6,7 @@ export default [
   {
     id: '2',
     lang: 'en_GB',
-    langAlt: ['de_DE'],
+    langAlt: ['base', 'de_DE'],
     title: {
       base: 'Jakiś tytuł',
       en_GB: 'Some title',

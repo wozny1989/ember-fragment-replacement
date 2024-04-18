@@ -1,20 +1,29 @@
 import Model from '@ember-data/model';
 
+const isFragment = (type) => type?.endsWith('fragment');
+
 export default class BaseModel extends Model {
   get hasDirtyAttributes() {
     const hasDirtyAttributes = super.hasDirtyAttributes;
 
-    let hasDirtyFragmentRelationships = false;
+    let hasDirtyFragments = false;
 
-    this.eachRelationship((name, descriptor) => {
-      if (
-        descriptor.type.endsWith('fragment') &&
-        this[name]?.hasDirtyAttributes
-      ) {
-        hasDirtyFragmentRelationships = true;
+    this.eachAttribute((name, { type }) => {
+      if (isFragment(type) && this[name]?.hasDirtyAttributes) {
+        hasDirtyFragments = true;
       }
     });
 
-    return hasDirtyAttributes || hasDirtyFragmentRelationships;
+    return hasDirtyAttributes || hasDirtyFragments;
+  }
+
+  rollbackAttributes() {
+    this.eachAttribute((name, { type }) => {
+      if (isFragment(type) && this[name]?.hasDirtyAttributes) {
+        this[name].rollbackAttributes();
+      }
+    });
+
+    super.rollbackAttributes();
   }
 }

@@ -12,7 +12,6 @@ export default class CreateNewComponent extends Component {
   create() {
     this.model = this.store.createRecord('post', {
       lang: 'en_GB',
-      title: this.store.createRecord('lang-fragment'),
     });
   }
 }

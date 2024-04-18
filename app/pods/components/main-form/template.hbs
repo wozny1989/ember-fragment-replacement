@@ -18,6 +18,11 @@
   />
 
   <button
+    type="button"
+    disabled={{not @model.hasDirtyAttributes}}
+    {{on "click" this.rollbackModel}}
+  >Rollback</button>
+  <button
     type="submit"
     disabled={{not @model.hasDirtyAttributes}}
   >Submit</button>
@@ -43,6 +48,11 @@
     {{on "input" this.onTitleChangesetChange}}
   />
 
+  <button
+    type="button"
+    disabled={{not this.changeset.isDirty}}
+    {{on "click" this.rollbackChangeset}}
+  >Rollback</button>
   <button type="submit" disabled={{not this.changeset.isDirty}}>Submit</button>
 </form>
 
