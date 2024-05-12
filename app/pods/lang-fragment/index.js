@@ -35,7 +35,7 @@ export class LangFragment {
 
   _snapshot = {};
 
-  constructor(value = {}) {
+  constructor(contextOrModel, value = {}) {
     SUPPORT_LANGS.forEach((lang) => {
       this[lang] = value[lang] ?? null;
     });

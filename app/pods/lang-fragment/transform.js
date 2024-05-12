@@ -1,15 +1,15 @@
 import Transform from '@ember-data/serializer/transform';
 import { LangFragment } from './index';
 
-export default class LangFragmentTransorm extends Transform {
+export default class LangFragmentTransform extends Transform {
   deserialize(serialized, { defaultValue = {} }) {
     const type = typeof serialized;
 
     if (type === 'object') {
-      return new LangFragment(serialized);
+      return new LangFragment(this, serialized);
     }
 
-    return LangFragment(defaultValue);
+    return new LangFragment(this, defaultValue);
   }
 
   serialize(value) {
