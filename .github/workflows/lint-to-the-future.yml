@@ -3,7 +3,6 @@ name: Lint to the Future Dashboard
 on:
   push:
     branches:
-      - master
       - main
 
 jobs:
