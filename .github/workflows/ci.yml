@@ -47,6 +47,9 @@ jobs:
         run: npm test
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
     steps:
       - uses: actions/checkout@v4
       - uses: mansona/lttf-dashboard@v1
