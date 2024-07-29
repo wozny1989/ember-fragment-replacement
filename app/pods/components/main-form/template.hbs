@@ -62,6 +62,15 @@
 </div>
 
 <div>
+  Has errors?
+  {{gt this.changeset.errors.length 0}}
+</div>
+
+<div>
   Resolved:
   {{this.changeset.title.resolved}}
 </div>
+
+<div id="graph" style="width: 100%;"></div>
+
+<div id="viz" style="height: 400px; border: 1px solid black;"></div>

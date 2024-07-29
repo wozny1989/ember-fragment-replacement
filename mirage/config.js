@@ -28,4 +28,10 @@ function routes() {
   this.get('/posts/:id');
   this.put('/posts/:id');
   this.del('/posts/:id');
+
+  this.get('/users');
+  this.post('/users');
+  this.get('/users/:id');
+  this.put('/users/:id');
+  this.del('/users/:id');
 }

@@ -1,5 +1,5 @@
 import BaseModel from 'ember-fragment-replacement/pods/base/model';
-import { attr } from '@ember-data/model';
+import { attr, belongsTo, hasMany } from '@ember-data/model';
 import { service } from '@ember/service';
 import { LangFragment } from '../lang-fragment';
 
@@ -22,4 +22,7 @@ export default class PostModel extends BaseModel {
     defaultValue: () => new LangFragment(modelContext, { base: 'aa' }),
   })
   title;
+
+  @belongsTo('user', { async: true, inverse: null }) user;
+  @hasMany('user', { async: true, inverse: null }) users;
 }
