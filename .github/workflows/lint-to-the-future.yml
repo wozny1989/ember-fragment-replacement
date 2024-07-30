@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: mansona/lttf-dashboard@v1
+      - uses: wozny1989/lttf-dashboard@4af641df699bb28e9fd5f222f48c02b7585c0d21
         with:
           token: ${{secrets.GITHUB_TOKEN}}
+          node-version: '20'
